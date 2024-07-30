@@ -26,7 +26,7 @@ const ForumDetails = () => {
               variant="top"
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/0b/55/30/mall-exterior-shot.jpg?w=1200&h=-1&s=1"
               className="card-img"
-              style={{ maxWidth: '100%', height: 'auto' }} // Adjust image styles here
+              style={{ maxWidth: '100%', height: 'auto' }} 
             />
             <Card.Body>
               <Card.Title>Forum Fiza Mall</Card.Title>

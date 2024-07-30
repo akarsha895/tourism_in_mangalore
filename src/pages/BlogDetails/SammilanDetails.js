@@ -26,7 +26,7 @@ const SammilanDetails = () => {
               variant="top"
               src="https://lh5.googleusercontent.com/p/AF1QipPG-WFCRc0aIREpvBE1BQ8qig2E84iVAthT3xRX=w675-h390-n-k-no"
               className="card-img"
-              style={{ maxWidth: '100%', height: 'auto' }} // Adjust image styles here
+              style={{ maxWidth: '100%', height: 'auto' }} 
             />
             <Card.Body>
               <Card.Title>Sammilan Shetty's Butterfly Park</Card.Title>

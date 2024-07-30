@@ -26,7 +26,7 @@ const KadriDetails = () => {
               variant="top"
               src="https://genuinetaxi.in/wp-content/uploads/2022/05/Kadri-Manjunatheshwara-Temple.jpg"
               className="card-img"
-              style={{ maxWidth: '100%', height: 'auto' }} // Adjust image styles here
+              style={{ maxWidth: '100%', height: 'auto' }} 
             />
             <Card.Body>
               <Card.Title>Kadri Manjunath Temple</Card.Title>

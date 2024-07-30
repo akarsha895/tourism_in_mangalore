@@ -1,16 +1,15 @@
-//searchResultsPage.js
 
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useLocation, Link } from 'react-router-dom';
-import './SearchResultsPage.css'; // Import custom CSS for search results
+import './SearchResultsPage.css'; 
 
 const SearchResultsPage = () => {
   const [searchResults, setSearchResults] = useState([]);
   const query = new URLSearchParams(useLocation().search).get('query');
 
   useEffect(() => {
-    // Add your pages here
+    
     const allPages = [
       { path: '/blog/pilikula', title: 'Pilikula Nisargadhama', img: 'https://th-i.thgim.com/public/migration_catalog/article11466977.ece/alternates/FREE_1200/14MN_PILIKULA' },
       { path: '/blog/sammilan', title: 'Sammilan Shetty\'s Butterfly Park', img: 'https://lh5.googleusercontent.com/p/AF1QipPG-WFCRc0aIREpvBE1BQ8qig2E84iVAthT3xRX=w675-h390-n-k-no' },

@@ -24,7 +24,7 @@ const Beach2Page = () => {
         <br />
         <strong>Entry Charges:</strong> Free entry.
       </p>
-      {/* Include your compact map here */}
+      {}
       <div style={{ width: '100%', height: '300px', border: '1px solid #ccc', marginTop: '20px' }}>
         <iframe
           title="Panambur Beach Map"

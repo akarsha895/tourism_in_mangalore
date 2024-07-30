@@ -25,35 +25,35 @@ const SignupPage = () => {
     setErrors(errorObj);
 
     if (Object.keys(errorObj).length === 0) {
-      setLoading(true); // Start loading
+      setLoading(true); 
       try {
-        // POST request to sign up
+       
         const response = await axios.post('http://localhost:5000/api/users/signup', formData);
         setSuccessMessage('Signup successful! Please log in.');
         setFormData({ username: '', email: '', password: '' });
         setErrors({});
       } catch (error) {
         if (error.response) {
-          // Backend returned an error response
+         
           const errorResponse = error.response.data;
           const apiErrors = {};
           if (errorResponse.errors) {
-            // Handle validation errors
+          
             errorResponse.errors.forEach(err => {
               apiErrors[err.param] = err.msg;
             });
           } else {
-            // Handle other errors
+          
             apiErrors.api = errorResponse.message || 'An unexpected error occurred. Please try again.';
           }
           setErrors(apiErrors);
         } else {
-          // Network or other error
+       
           setErrors({ api: 'Error during signup. Please try again.' });
         }
         console.error('Error during signup:', error);
       } finally {
-        setLoading(false); // Stop loading
+        setLoading(false); 
       }
     }
   };

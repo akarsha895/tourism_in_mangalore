@@ -26,7 +26,7 @@ const SasihithluDetails = () => {
               variant="top"
               src="https://lh5.googleusercontent.com/p/AF1QipNRw4bVz2N7CR3iCZf2q1RDcieGiknuqLzuAMCd=s800"
               className="card-img"
-              style={{ maxWidth: '100%', height: 'auto' }} // Adjust image styles here
+              style={{ maxWidth: '100%', height: 'auto' }}
             />
             <Card.Body>
               <Card.Title>Sasihithlu Beach</Card.Title>

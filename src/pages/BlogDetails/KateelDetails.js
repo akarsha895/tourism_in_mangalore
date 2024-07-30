@@ -26,7 +26,7 @@ const KateelDetails = () => {
               variant="top"
               src="https://lightuptemples.com/wp-content/uploads/2022/11/file78yh7bdaa2sxjq8x1mp-1579713813.jpg"
               className="card-img"
-              style={{ maxWidth: '100%', height: 'auto' }} // Adjust image styles here
+              style={{ maxWidth: '100%', height: 'auto' }} 
             />
             <Card.Body>
               <Card.Title>Kateel Durga Parameshwari Temple</Card.Title>

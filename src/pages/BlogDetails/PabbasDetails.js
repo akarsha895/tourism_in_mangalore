@@ -26,7 +26,7 @@ const PabbasDetails = () => {
               variant="top"
               src="https://lh3.googleusercontent.com/p/AF1QipMtDlWrWUd-W7emXanWzur2ZW6n_aGPUQAaEFXr=s1360-w1360-h10201"
               className="card-img"
-              style={{ maxWidth: '100%', height: 'auto' }} // Adjust image styles here
+              style={{ maxWidth: '100%', height: 'auto' }} 
             />
             <Card.Body>
               <Card.Title>Pabbas Icecream Parlour</Card.Title>

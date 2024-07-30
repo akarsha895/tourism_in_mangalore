@@ -23,6 +23,8 @@ import KadriDetails from './pages/BlogDetails/KadriDetails';
 import CathedralDetails from './pages/BlogDetails/CathedralDetails';
 import KateelDetails from './pages/BlogDetails/KateelDetails';
 import PabbasDetails from './pages/BlogDetails/PabbasDetails';
+import SearchResultsPage from './pages/SearchResultsPage'; 
+import AdminDashboard from './pages/AdminDashboard';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -44,7 +46,6 @@ const App = () => {
           <Route path="/beach1" element={<Beach1Page />} />
           <Route path="/beach2" element={<Beach2Page />} />
           <Route path="/temple2" element={<Temple2Page />} />
-
           <Route path="/blog/pilikula" element={<PilikulaDetails />} />
           <Route path="/blog/sammilan" element={<SammilanDetails />} />
           <Route path="/blog/sasihithlu" element={<SasihithluDetails />} />
@@ -54,6 +55,8 @@ const App = () => {
           <Route path="/blog/cathedral" element={<CathedralDetails />} />
           <Route path="/blog/kateel" element={<KateelDetails />} />
           <Route path="/blog/pabbas" element={<PabbasDetails />} />
+          <Route path="/search" element={<SearchResultsPage />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
         </Routes>
       </Container>
       <Footer />

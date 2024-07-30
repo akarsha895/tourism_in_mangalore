@@ -14,8 +14,6 @@ const ContactForm = () => {
     formData.append('email', email);
     formData.append('phone', phone);
     formData.append('message', message);
-
-    // Add validation logic here
     const errorObj = {};
     if (!name) {
       errorObj.name = 'Please enter your name';
@@ -33,9 +31,9 @@ const ContactForm = () => {
     if (Object.keys(errorObj).length > 0) {
       setErrors(errorObj);
     } else {
-      // Send the form data to the server or API
+    
       console.log('Form submitted successfully!');
-      // Reset the form fields
+     
       setName('');
       setEmail('');
       setPhone('');

@@ -26,7 +26,7 @@ const SulthanDetails = () => {
               variant="top"
               src="https://merrytogoaround.com/wp-content/uploads/2013/09/sultan-battery.png"
               className="card-img"
-              style={{ maxWidth: '100%', height: 'auto' }} // Adjust image styles here
+              style={{ maxWidth: '100%', height: 'auto' }}
             />
             <Card.Body>
               <Card.Title>Sulthan Battery</Card.Title>

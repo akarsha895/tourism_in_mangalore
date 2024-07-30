@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import './AboutPage.css'; // Import the custom CSS file for AboutPage
+import './AboutPage.css'; 
 
 const AboutPage = () => {
   return (

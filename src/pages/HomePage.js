@@ -1,9 +1,8 @@
-//HomePage.js
 
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import './HomePage.css'; // Import the custom CSS file for homepage styling
+import './HomePage.css'; 
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('');

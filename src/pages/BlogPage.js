@@ -116,7 +116,7 @@ const BlogPage = () => {
                   </Card>
                 </Col>
               </Row>
-              {/* Add more beaches/forts posts as needed */}
+              {}
             </section>
 
             <section id="shopping-mall">
@@ -137,7 +137,7 @@ const BlogPage = () => {
                   <Card.Text>Experience the vibrant shopping culture.</Card.Text>
                 </Card.Body>
               </Card>
-              {/* Add more shopping mall posts as needed */}
+              {}
             </section>
 
             <section id="religious-place">
@@ -198,7 +198,7 @@ const BlogPage = () => {
                   </Card>
                 </Col>
               </Row>
-              {/* Add more religious place posts as needed */}
+              {}
             </section>
 
             <section id="ice-cream-parlour">
@@ -219,13 +219,13 @@ const BlogPage = () => {
                   <Card.Text>Visit one of the famous Ice cream parlours of Mangalore!</Card.Text>
                 </Card.Body>
               </Card>
-              {/* Add more ice cream parlour posts as needed */}
+              {}
             </section>
 
           </Col>
         </Row>
       </Container>
-      {/* Remove the extra Footer here */}
+      {}
     </>
   );
 };

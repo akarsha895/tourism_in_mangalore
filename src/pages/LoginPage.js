@@ -21,20 +21,20 @@ const LoginForm = () => {
     if (Object.keys(errorObj).length === 0) {
       setLoading(true);
       try {
-        // POST request to login
+       
         const response = await axios.post('http://localhost:5000/api/users/login', { email, username });
         localStorage.setItem('token', response.data.token);
         setSuccessMessage('Login successful!');
-        setErrors({}); // Clear previous errors if any
+        setErrors({}); 
       } catch (error) {
         console.error('Error during login:', error);
-        // Handle API errors
+       
         if (error.response && error.response.status === 400) {
           setErrors({ api: 'Invalid email or username' });
         } else {
           setErrors({ api: 'Server error. Please try again.' });
         }
-        setSuccessMessage(''); // Clear success message if there was an error
+        setSuccessMessage(''); 
       } finally {
         setLoading(false);
       }

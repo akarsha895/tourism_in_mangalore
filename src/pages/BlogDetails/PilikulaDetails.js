@@ -26,7 +26,7 @@ const PilikulaDetails = () => {
               variant="top"
               src="https://content.jdmagicbox.com/comp/mangalore/t6/0824px824.x824.180119140344.g3t6/catalogue/pilikula-regional-science-center-moodushedde-mangalore-parks-1n5vpp9z01.jpg"
               className="card-img"
-              style={{ maxWidth: '100%', height: 'auto' }} // Adjust image styles here
+              style={{ maxWidth: '100%', height: 'auto' }} 
             />
             <Card.Body>
               <Card.Title>Pilikula Biological Park</Card.Title>

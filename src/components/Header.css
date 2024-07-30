@@ -14,7 +14,7 @@
   }
   
   .navbar-custom .nav-link:hover {
-    color: #ffc107 !important; /* Bootstrap's warning color */
+    color: #ffc107 !important; 
   }
   
   .navbar-custom .ml-auto {

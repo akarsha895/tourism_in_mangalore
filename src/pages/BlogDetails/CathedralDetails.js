@@ -26,7 +26,7 @@ const CathedralDetails = () => {
               variant="top"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/St_Aloysius_Church%2C_Glasgow_03.jpg/800px-St_Aloysius_Church%2C_Glasgow_03.jpg"
               className="card-img"
-              style={{ maxWidth: '100%', height: 'auto' }} // Adjust image styles here
+              style={{ maxWidth: '100%', height: 'auto' }} 
             />
             <Card.Body>
               <Card.Title>St. Aloysius Church</Card.Title>
