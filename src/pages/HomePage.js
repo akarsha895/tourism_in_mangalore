@@ -1,25 +1,41 @@
-import React from 'react';
+//HomePage.js
+
+import React, { useState } from 'react';
 import { Container, Row, Col, Card, InputGroup, FormControl, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './HomePage.css'; // Import the custom CSS file for homepage styling
 
 const HomePage = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (searchQuery) {
+      navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
+    }
+  };
+
   return (
     <Container className="homepage-container p-5 mb-4 bg-light rounded-3">
       <h1>Welcome to Namma Kudla</h1>
 
       {/* Search Bar */}
       <div className="search-bar-container mt-3 mb-4">
-        <InputGroup>
-          <FormControl
-            placeholder="Search here..."
-            aria-label="Search"
-            aria-describedby="basic-addon2"
-          />
-          <Button variant="primary" id="button-addon2">
-            Search
-          </Button>
-        </InputGroup>
+        <form onSubmit={handleSearch}>
+          <InputGroup>
+            <FormControl
+              placeholder="Search here..."
+              aria-label="Search"
+              aria-describedby="basic-addon2"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <Button variant="primary" type="submit" id="button-addon2">
+              Search
+            </Button>
+          </InputGroup>
+        </form>
       </div>
 
       <img

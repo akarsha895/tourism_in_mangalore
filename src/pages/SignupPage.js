@@ -1,110 +1,117 @@
 import React, { useState } from 'react';
-import './SignupPage.css'
+import axios from 'axios';
+import './SignupPage.css';
 
-const SignupForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+const SignupPage = () => {
+  const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('email', email);
-    formData.append('password', password);
-    formData.append('confirmPassword', confirmPassword);
-
-    // Add validation logic here
+    const { username, email, password } = formData;
     const errorObj = {};
-    if (!name) {
-      errorObj.name = 'Please enter your name';
-    }
-    if (!email) {
-      errorObj.email = 'Please enter your email';
-    }
-    if (!password) {
-      errorObj.password = 'Please enter your password';
-    }
-    if (!confirmPassword) {
-      errorObj.confirmPassword = 'Please confirm your password';
-    }
-    if (password !== confirmPassword) {
-      errorObj.confirmPassword = 'Passwords do not match';
-    }
 
-    if (Object.keys(errorObj).length > 0) {
-      setErrors(errorObj);
-    } else {
-      // Send the form data to the server or API
-      console.log('Form submitted successfully!');
-      // Reset the form fields
-      setName('');
-      setEmail('');
-      setPassword('');
-      setConfirmPassword('');
+    if (!username) errorObj.username = 'Username is required';
+    if (!email) errorObj.email = 'Email is required';
+    if (!password) errorObj.password = 'Password is required';
+
+    setErrors(errorObj);
+
+    if (Object.keys(errorObj).length === 0) {
+      setLoading(true); // Start loading
+      try {
+        // POST request to sign up
+        const response = await axios.post('http://localhost:5000/api/users/signup', formData);
+        setSuccessMessage('Signup successful! Please log in.');
+        setFormData({ username: '', email: '', password: '' });
+        setErrors({});
+      } catch (error) {
+        if (error.response) {
+          // Backend returned an error response
+          const errorResponse = error.response.data;
+          const apiErrors = {};
+          if (errorResponse.errors) {
+            // Handle validation errors
+            errorResponse.errors.forEach(err => {
+              apiErrors[err.param] = err.msg;
+            });
+          } else {
+            // Handle other errors
+            apiErrors.api = errorResponse.message || 'An unexpected error occurred. Please try again.';
+          }
+          setErrors(apiErrors);
+        } else {
+          // Network or other error
+          setErrors({ api: 'Error during signup. Please try again.' });
+        }
+        console.error('Error during signup:', error);
+      } finally {
+        setLoading(false); // Stop loading
+      }
     }
   };
 
   return (
-    <div className="signup-form">
-      <h2>Sign up for an Account</h2>
+    <div className="signup-page">
+      <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Name:</label>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            placeholder="Your Name"
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            placeholder="Enter your username"
           />
-          {errors.name && <div className="error">{errors.name}</div>}
+          {errors.username && <div className="error">{errors.username}</div>}
         </div>
 
         <div className="form-group">
-          <label>Email:</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            placeholder="Your Email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Enter your email"
           />
           {errors.email && <div className="error">{errors.email}</div>}
         </div>
 
         <div className="form-group">
-          <label>Password:</label>
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            placeholder="Your Password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Enter your password"
           />
           {errors.password && <div className="error">{errors.password}</div>}
         </div>
 
-        <div className="form-group">
-          <label>Confirm Password:</label>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(event) => setConfirmPassword(event.target.value)}
-            placeholder="Confirm Your Password"
-          />
-          {errors.confirmPassword && <div className="error">{errors.confirmPassword}</div>}
-        </div>
+        {errors.api && <div className="error">{errors.api}</div>}
+        {successMessage && <div className="success">{successMessage}</div>}
 
-        <button type="submit" className="btn btn-primary">
-          Sign up
+        <button type="submit" className="btn btn-primary" disabled={loading}>
+          {loading ? 'Signing Up...' : 'Sign Up'}
         </button>
 
-        <p>
-          Already have an account? <a href="/login">Login</a>
-        </p>
+        <p>Already have an account? <a href="/login">Login here</a></p>
       </form>
     </div>
   );
 };
 
-export default SignupForm;
+export default SignupPage;
